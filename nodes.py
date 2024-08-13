@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import torch
 from PIL import Image
-
+from torchvision import transforms
 from diffusers import ControlNetModel
 from diffusers import (
     DDIMScheduler,
@@ -266,13 +266,11 @@ class VEdit_Sampler:
                 generator=generator,
                 controlnet_conditioning_scale=controlnet_conditioning_scale,
             )
-        # pipe.to(offload_device)
-        # pipe.to(offload_device)
-        # image_out = out_frames.squeeze(0).permute(1, 2, 3, 0).cpu().float()
-        # return (image_out,)
-        out_frames = torch.cat(out_frames)
-        out_frames = torch.from_numpy(out_frames)
-        return (out_frames,)
+        to_tensor = transforms.ToTensor()
+        # out_frames = list(map(lambda x: to_tensor(x), out_frames))
+        tensors = [to_tensor(img) for img in out_frames]
+        transposed_tensors = [tensor.permute(1, 2, 0) for tensor in tensors]
+        return (transposed_tensors,)
 
 
 NODE_CLASS_MAPPINGS = {
