@@ -1,4 +1,4 @@
-# ComfyUI nodes to use M3net
+# ComfyUI nodes to use VideoEditing
 
 https://github.com/SingleZombie/DiffusersExample/tree/main/ReplaceAttn
 
