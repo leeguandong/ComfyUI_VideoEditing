@@ -1,0 +1,15 @@
+[project]
+name = "comfyui_videoediting"
+description = "Nodes:Load Video to Images, Image to Canny, ControlNet Model Loader, VEDit Model Loader, VEdit Sampler. [a/https://github.com/SingleZombie/DiffusersExample/tree/main/ReplaceAttn](https://github.com/SingleZombie/DiffusersExample/tree/main/ReplaceAttn)"
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["opencv-python"]
+
+[project.urls]
+Repository = "https://github.com/leeguandong/ComfyUI_VideoEditing"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI_VideoEditing"
+Icon = ""
